@@ -1,7 +1,7 @@
 <template>
   <Bar
-      :chart-options="chartOptions"
-      :chart-data="chartData"
+      :options="chartOptions"
+      :data="chartData"
       :chart-id="chartId"
       :dataset-id-key="datasetIdKey"
       :plugins="plugins"
@@ -55,7 +55,7 @@ export default {
     return {
       chartData: {
         labels: [ 'January', 'February', 'March' ],
-        datasets: [ { data: [40, 20, 12] } ]
+        datasets: [ { label: 'My Bar Chart', data: [40, 20, 12] } ]
       },
       chartOptions: {
         responsive: true,
