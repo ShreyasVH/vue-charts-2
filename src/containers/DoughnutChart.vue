@@ -1,6 +1,6 @@
 <template>
   <div style="width: 400px; height: 400px">
-    <Bar
+    <Doughnut
         :options="chartOptions"
         :data="chartData"
         :chart-id="chartId"
@@ -12,21 +12,22 @@
         :height="height"
     />
   </div>
+
 </template>
 
 <script>
-import { Bar } from 'vue-chartjs'
-import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
+import { Doughnut } from 'vue-chartjs'
+import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement, CategoryScale, LinearScale } from 'chart.js'
 
-ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
+ChartJS.register(Title, Tooltip, Legend, ArcElement, CategoryScale, LinearScale)
 
 export default {
-  name: "BarChart",
-  components: { Bar },
+  name: "DoughnutChart",
+  components: { Doughnut },
   props: {
     chartId: {
       type: String,
-      default: 'bar-chart'
+      default: 'doughnut-chart'
     },
     datasetIdKey: {
       type: String,
@@ -57,7 +58,17 @@ export default {
     return {
       chartData: {
         labels: [ 'January', 'February', 'March' ],
-        datasets: [ { label: 'My Bar Chart', data: [40, 20, 12], backgroundColor: 'rgba(255, 99, 132, 0.2)', borderColor: 'rgb(255, 99, 132)', borderWidth: 1 } ]
+        datasets: [ { label: 'My Doughnut Chart', data: [40, 20, 12], backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+          ],
+          borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+          ],
+          borderWidth: 1 } ]
       },
       chartOptions: {
         responsive: true,
