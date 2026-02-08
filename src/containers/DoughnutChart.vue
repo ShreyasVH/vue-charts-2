@@ -1,8 +1,8 @@
 <template>
-  <div style="width: 400px; height: 400px">
+  <div style="width: 400px; height: 400px; display: inline-block">
     <Doughnut
         :options="chartOptions"
-        :data="chartData"
+        :data="data"
         :chart-id="chartId"
         :dataset-id-key="datasetIdKey"
         :plugins="plugins"
@@ -52,24 +52,14 @@ export default {
     plugins: {
       type: Object,
       default: () => {}
+    },
+    data: {
+      type: Object,
+      default: () => {}
     }
   },
   data() {
     return {
-      chartData: {
-        labels: [ 'January', 'February', 'March' ],
-        datasets: [ { label: 'My Doughnut Chart', data: [40, 20, 12], backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-          ],
-          borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-          ],
-          borderWidth: 1 } ]
-      },
       chartOptions: {
         responsive: true,
         maintainAspectRatio: false
